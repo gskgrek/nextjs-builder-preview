@@ -1,0 +1,63 @@
+# yarn
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.next
+
+# testing
+/coverage
+
+# production
+/build
+/dist
+/storybook
+.cache
+
+# Optional eslint cache
+.eslintcache
+
+# IDE
+.idea
+/.idea
+**/.idea
+.vscode/
+
+# envs
+.env.local
+.env.dev
+.env.prod
+.env.test
+.env.development
+.env.production
+.env.development.local
+.env.production.local
+.env.test.local
+
+# logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# typescript
+*.tsbuildinfo
+
+# vercel
+.vercel
+
+# misc
+.DS_Store
+*.pem
+.terraform
+.terraform*
+secrets.yaml
