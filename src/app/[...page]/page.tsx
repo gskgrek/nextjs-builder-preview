@@ -9,7 +9,7 @@ import { BUILDER_API_KEY } from 'utils/constants'
 import { RenderBuilderContent } from 'components/builder'
 
 // Replace with your Public API Key
-builder.init('BUILDER_API_KEY')
+builder.init(BUILDER_API_KEY)
 
 // Define the expected shape of the props
 // object passed to the Page function
@@ -41,6 +41,7 @@ export const generateMetadata = async (props: PageProps): Promise<Metadata> => {
 // Async function called Page takes a single
 // argument called props of type PageProps
 export default async function Page(props: PageProps) {
+  console.log('aaaa', props)
   const content = await builder
     // Get the page content from Builder with the specified options
     .get('page', {
