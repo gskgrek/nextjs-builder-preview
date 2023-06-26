@@ -6,6 +6,7 @@ import { Metadata } from 'next'
 
 import { BUILDER_API_KEY } from 'utils/constants'
 
+import { Footer, Navigation } from 'components'
 import { RenderBuilderContent } from 'components/builder'
 
 // Replace with your Public API Key
@@ -58,7 +59,9 @@ export default async function Page(props: PageProps) {
   return (
     <>
       {/* Render the Builder page */}
+      <Navigation />
       <RenderBuilderContent content={content} />
+      <Footer />
     </>
   )
 }
