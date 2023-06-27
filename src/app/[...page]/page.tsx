@@ -42,7 +42,6 @@ export const generateMetadata = async (props: PageProps): Promise<Metadata> => {
 // Async function called Page takes a single
 // argument called props of type PageProps
 export default async function Page(props: PageProps) {
-  console.log('aaaa', props)
   const content = await builder
     // Get the page content from Builder with the specified options
     .get('page', {
