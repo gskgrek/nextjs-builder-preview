@@ -2,7 +2,7 @@
 // You could alternatively use src/app/[...page]/page.tsx
 
 import { builder } from '@builder.io/sdk'
-import { Metadata } from 'next'
+import { GetServerSidePropsContext, Metadata } from 'next'
 
 import { BUILDER_API_KEY } from 'utils/constants'
 
@@ -63,4 +63,21 @@ export default async function Page(props: PageProps) {
       <Footer />
     </>
   )
+}
+
+export async function getStaticProps(context: GetServerSidePropsContext) {
+  const content = await builder
+    // Get the page content from Builder with the specified options
+    .get('page', {
+      userAttributes: {
+        // Use the page path specified in the URL to fetch the content
+        url: context.resolvedUrl,
+      },
+    })
+    // Convert the result to a promise
+    .promise()
+
+  return {
+    props: { content },
+  }
 }

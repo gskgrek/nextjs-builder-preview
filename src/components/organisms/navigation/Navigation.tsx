@@ -6,13 +6,14 @@ builder.init(BUILDER_API_KEY)
 
 export const Navigation = async () => {
   const links = await builder.getAll('navigation', { prerender: false })
-  console.log(links?.[0].data?.internalUrl?.value.data.url)
+
   return (
     <nav>
-      {links.map((link, index) => (
-        <a key={index} href={link.data.internalUrl.value.data.url}>
-          {link.data.label}
-        </a>
+      {links?.map((link, index) => (
+        <span key={index}>
+          <a href={link?.data?.internalUrl.value.data.url}>{link?.data?.label}</a>
+          {index < links.length - 1 && ' | '}
+        </span>
       ))}
     </nav>
   )

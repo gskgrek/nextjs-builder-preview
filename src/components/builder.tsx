@@ -2,11 +2,13 @@
 'use client'
 // Import BuilderComponent and useIsPreviewing hooks from React
 // and DefaultErrorPage from Next
-import { BuilderComponent, useIsPreviewing } from '@builder.io/react'
+import { Builder, BuilderComponent, useIsPreviewing } from '@builder.io/react'
 import { builder } from '@builder.io/sdk'
 import DefaultErrorPage from 'next/error'
 
 import { BUILDER_API_KEY } from 'utils/constants'
+
+import { Hero } from 'components'
 
 // Replace with your Public API Key
 builder.init(BUILDER_API_KEY)
@@ -31,3 +33,15 @@ export const RenderBuilderContent = ({ content }: BuilderPageProps) => {
   // DefaultErrorPage with a 404.
   return <DefaultErrorPage statusCode={404} />
 }
+
+// Register this component for use in the Visual Editor
+Builder.registerComponent(Hero, {
+  name: 'Hero',
+  inputs: [
+    // 'name' is the name of your prop
+    { name: 'title', type: 'text' },
+    { name: 'description', type: 'text' },
+  ],
+  models: ['page'],
+  image: 'https://picsum.photos/800/400',
+})
